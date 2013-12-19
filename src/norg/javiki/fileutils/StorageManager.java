@@ -1,4 +1,4 @@
-package norg.javiki.filemanager;
+package norg.javiki.fileutils;
 
 class StorageManager {
 	

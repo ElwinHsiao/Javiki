@@ -53,12 +53,17 @@ public class HttpDownloadSession extends DownloadSession {
 	}
 
 	@Override
-	protected void doPause() throws UnsupportedOperationException {
+	protected boolean canPause() {
+		return true;
+	}
+	
+	@Override
+	protected void doPause() {
 		mIsPaused = true;
 	}
 	
 	@Override
-	protected void doResume() throws UnsupportedOperationException {
+	protected void doResume() {
 		mIsPaused = false;
 		notifyAll();
 	}
@@ -291,4 +296,5 @@ public class HttpDownloadSession extends DownloadSession {
 		
 		return true;
 	}
+
 }

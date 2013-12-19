@@ -86,13 +86,13 @@ public abstract class DownloadSession {
 		mTaskInfo.filePath = null;
 		mHandler.obtainMessage(ForegroundHandler.MSG_FINISH, mTaskInfo).sendToTarget();
 	}
-	
-	public void pause() throws UnsupportedOperationException {
+
+	public void pause() {
 		doPause();
 		updateState(State.PAUSED);
 	}
 	
-	public void resume() throws UnsupportedOperationException {
+	public void resume() {
 		doPause();
 		updateState(State.STARTED);
 	}
@@ -143,8 +143,10 @@ public abstract class DownloadSession {
 //	protected abstract int getErrorCode();
 
 	protected abstract void doDownload() throws NetworkErrorException,TimeoutException,WriteAbortedException;
-	protected abstract void doPause() throws UnsupportedOperationException;
-	protected abstract void doResume() throws UnsupportedOperationException;
+	
+	protected abstract boolean canPause();
+	protected abstract void doPause();
+	protected abstract void doResume();
 	protected abstract void doCancel();
 	
 	public static class TaskInfo {
