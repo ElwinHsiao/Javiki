@@ -17,8 +17,8 @@ public class DownloadUtils {
 		try {
 			URL mUrl = new URL(url);
 			HttpURLConnection conn = (HttpURLConnection) mUrl.openConnection();
-			conn.setConnectTimeout(5);
-			conn.setReadTimeout(5);
+			conn.setConnectTimeout(10000);
+			conn.setReadTimeout(10000);
 			InputStream is = conn.getInputStream();
 			return is;
 //        conn.setInstanceFollowRedirects(false);

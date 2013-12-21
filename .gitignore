@@ -1,3 +1,6 @@
 /bin
 /gen
 /.settings
+/tests/bin
+/tests/gen
+/tests/.settings

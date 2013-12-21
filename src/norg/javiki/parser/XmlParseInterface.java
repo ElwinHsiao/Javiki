@@ -1,5 +1,6 @@
 package norg.javiki.parser;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -21,8 +22,23 @@ public abstract class XmlParseInterface<Result> implements ParseInterface<Result
 			return null;
 		}
 		
+//		Result result = null;
+//		try {
+//			for (int evtType = xmlParser.getEventType(); evtType != XmlPullParser.END_DOCUMENT; evtType = xmlParser.next()) {
+//				parse(xmlParser, evtType, result);
+//			}
+//		} catch (XmlPullParserException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return result;
+		
 		return parse(xmlParser);
 	}
 	
 	protected abstract Result parse(XmlPullParser parser);
+//	protected void parse(XmlPullParser xmlParser, int evtType, Result result) throws XmlPullParserException, IOException{}
 }
